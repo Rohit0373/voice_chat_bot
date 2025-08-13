@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rohit Voice Chat</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(270deg, #1e1e2f, #232946, #1e1e2f);
+      background-size: 600% 600%;
+      animation: backgroundMove 12s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+    @keyframes backgroundMove { 
+      0% { background-position: 0% 50%; } 
+      50% { background-position: 100% 50%; } 
+      100% { background-position: 0% 50%; } 
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #eebbc3;
+      text-shadow: 0 0 15px rgba(238, 187, 195, 0.6);
+      animation: popIn 1.2s ease-out forwards, glowPulse 2s ease-in-out infinite alternate;
+    }
+    @keyframes popIn { 
+      0% { transform: scale(0.5); opacity: 0; } 
+      100% { transform: scale(1); opacity: 1; } 
+    }
+    @keyframes glowPulse { 
+      0% { text-shadow: 0 0 10px rgba(238, 187, 195, 0.4); } 
+      100% { text-shadow: 0 0 25px rgba(238, 187, 195, 0.9); } 
+    }
+    select, button {
+      font-size: 1.2rem;
+      padding: 14px 25px;
+      border-radius: 12px;
+      border: none;
+      margin: 8px;
+      font-weight: bold;
+    }
+    #startBtn {
+      background: linear-gradient(90deg, #ff4d6d, #eebbc3);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 77, 109, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #startBtn:hover { 
+      transform: scale(1.15); 
+      box-shadow: 0 8px 25px rgba(255, 77, 109, 0.7); 
+    }
+    #stopBtn { 
+      background: linear-gradient(90deg, #ff1e00, #ff6a6a); 
+      color: white; 
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #stopBtn:hover { 
+      transform: scale(1.15); 
+      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.7); 
+    }
+    #response {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      width: 80%;
+      max-width: 500px;
+      font-size: 1.1rem;
+      min-height: 80px;
+      overflow-y: auto;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn { 
+      from { opacity: 0; transform: translateY(10px); } 
+      to { opacity: 1; transform: translateY(0); } 
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Rohit Voice Assistant</h1>
+
+  <select id="langSelect">
+    <option value="en-IN">English</option>
+    <option value="hi-IN">Hindi</option>
+  </select>
+
+  <button id="startBtn">🎤 Start Talking</button>
+  <button id="stopBtn">⛔ Stop</button>
+  
+  <div id="userText">You: </div>
+  <div id="response">
+    <p>Waiting for your voice command...</p>
+  </div>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
